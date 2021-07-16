@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import LandingHeader from '../Header/LandingHeader';
+import LandingHeader from '../component/Header/LandingHeader';
 
 function LandingPage(props){
     return(

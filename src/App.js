@@ -7,12 +7,10 @@ import {
   Link
 } from "react-router-dom";
 
-import LandingPage from '../src/view/Page/LandingPage';
-import AdminPage from '../src/view/Page/AdminPage';
-import PostPage from '../src/view/Page/PostPage';
-import Personal from '../src/view/Page/Personal';
-
-
+import LandingPage from '../src/Page/LandingPage';
+import AdminPage from '../src/Page/AdminPage';
+import PostPage from '../src/Page/PostPage';
+import Personal from '../src/Page/Personal';
 
 function App(){
   return (
@@ -40,7 +38,6 @@ function App(){
     //     </a>
     //   </header>
     // </div>
-    
   );
 }
 
