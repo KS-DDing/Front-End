@@ -1,8 +1,10 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import LandingHeader from '../components/Header/LandingHeader';
+import axios from 'axios'
 
 function LandingPage(props){
+    axios.post('/api/users/login');
     return(
         <div>
             <div>

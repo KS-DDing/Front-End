@@ -1,6 +1,7 @@
 import "../../assets/css/modal.css"
 import React, { useState } from "react";
 import RegistrationModal from "./Registration";
+import axios from 'axios'
 
 // import * as LoginHandler from "../../util/Handler/Login/LoginHandler";
 
@@ -29,6 +30,7 @@ function Login(props) {
 
     const openModal = () => {
         setModalOpen(true);
+        axios.post('/api/users/login');
     }
 
     const closeModal = () => {
