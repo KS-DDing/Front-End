@@ -4,7 +4,8 @@ import LandingHeader from '../components/Header/LandingHeader';
 import axios from 'axios'
 
 function LandingPage(props){
-    axios.post('/api/users/login');
+    console.log('h1')
+    axios.get('/api/users/alluser').then((response) => console.log(response));
     return(
         <div>
             <div>
