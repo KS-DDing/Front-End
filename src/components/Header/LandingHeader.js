@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import LoginModal from '../Modal/Login';
-
+import* as Logout from '../../util/Handler/Logout/LogoutHandler'
 function LandingHeader(props) {
     
     const[modalOpen, setModalOpen] = useState(false);
@@ -12,12 +12,13 @@ function LandingHeader(props) {
     const closeModal = () => {
         setModalOpen(false);
     }
-
+    
     return (
         <div>
             "초기화면 헤더"
             <div>
                 <button onClick={openModal}>로그인</button>
+                <button onClick={Logout.Logout}>로그아웃</button>
                 <LoginModal open={modalOpen} close={closeModal} header="Modal heading">
                     로그인 Modal
                 </LoginModal>

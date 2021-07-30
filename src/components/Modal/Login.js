@@ -1,10 +1,11 @@
 import "../../assets/css/modal.css"
-import React, { useState } from "react";
-import RegistrationModal from "./Registration";
+import React, { useState, useEffect } from "react";
+import RegistrationModal from "./Registration"
+import { withRouter } from 'react-router-dom';
 import axios from 'axios'
 
 function Login(props) {
-    // 로그인 정보 Input
+//     로그인 정보 Input
     // const [form, setForm] = useState({
     //     email : '',
     //     password : ''
@@ -44,7 +45,9 @@ function Login(props) {
     
     //
     const onLoginSubmit = (event) => {
-
+        console.log('click login')
+        console.log('Email : ' , Email)
+        console.log('PW : ', Password)
         event.preventDefault();
         
         let body ={
@@ -52,9 +55,27 @@ function Login(props) {
             password: Password
         }
 
-        axios.post('/api/users/login', body).then(res => console.log(res));
+        axios.post('/api/users/login',body).then(res => {
+            console.log(res);
+            console.log('res.data.email :: ', res.data.email)
+            console.log('res.data.password :: ',res.data.password )
+            if(res.data.email === Email) {
+                console.log('====================로그인 성공!')
+                props.history.push('/profile');
+                // sessionStorage.setItem('email',Email)
+            } else { 
+                alert('Login error');
+            }
+        })
+        .catch()
     }
 
+    // useEffect(() => {
+    //     console.log('get alluser')
+    //     axios.get('/api/users/alluser')
+    //     .then(res => console.log(res))
+    //     .catch()
+    // }, [])
     return (
 
         <div className={open ? 'openModal modal' : 'modal'}>
@@ -73,7 +94,7 @@ function Login(props) {
                             <label>Password</label>
                             <input type="password" name="password" placeholder="패스워드" value={Password} onChange={onPasswordHandler}/>
 
-                            <button type="submit" >로그인</button>
+                            <button type="submit" disabled={Email ==="" && Email < 10}>로그인</button>
                         </form>
                     </main>
                     <footer style={{textAlign:"center"}}>
@@ -89,4 +110,4 @@ function Login(props) {
     )
 }
 
-export default Login;
+export default withRouter(Login);
