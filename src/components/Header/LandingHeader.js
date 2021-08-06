@@ -37,6 +37,7 @@ function LandingHeader(props) {
             <div>
                 "초기화면 헤더"
                 <div>
+                    <Link to="/"><button>홈으로</button></Link>
                     <button onClick={Logout.Logout}>로그아웃</button>
                     {state.name + " 반갑습니다"}
                 </div>
