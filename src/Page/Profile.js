@@ -5,12 +5,14 @@ function Profile(props) {
     // const { email, password, name } = props || {};
     // console.log(props)
     useEffect(() => {
-        axios.get('/api/users/profile').then(res =>setState(res.data))
+        axios.get('/api/users/profile').then((req, res) =>setState(req.data))
        
     }, [])
+
     const [state, setState] = useState("")
     
-
+    
+    
     return (
         <>
         <h1>Profile</h1>
