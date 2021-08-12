@@ -16,6 +16,9 @@ function LandingPage(props){
                 <li>
                     <Link to="/personal">개인 화면</Link>
                 </li>
+                <li>
+                    <Link to="/:id/profile">프로필</Link>
+                </li>
             </ul>
         </div>
     )

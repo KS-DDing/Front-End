@@ -5,32 +5,8 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios'
 
 function Login(props) {
-//     로그인 정보 Input
-    // const [form, setForm] = useState({
-    //     email : '',
-    //     password : ''
-    // });
 
-    // const {Email, Password} = form;
-
-    // const onLoginInputHandler = (e) => {
-    //     const {value, name} = e.target;
-    //     setForm({
-    //         ...form,
-    //         [name]:value
-    //     });
-    //     console.log(name + " : "+value);
-    // };
-    const [Email, setEmail] = useState("");
-    const [Password, setPassword] = useState("");
-    const onEmailHandler = (event) =>{
-        setEmail(event.currentTarget.value);
-    }
-    const onPasswordHandler = (event) => {
-        setPassword(event.currentTarget.value);
-    }
-
-    // 회원가입 모달창
+    // 로그인 모달창
     const { open, close, header } = props;
 
     const [modalOpen, setModalOpen] = useState(false);
@@ -42,8 +18,17 @@ function Login(props) {
     const closeModal = () => {
         setModalOpen(false);
     }
-    
-    //
+
+    // 로그인 입력값
+    const [Email, setEmail] = useState("");
+    const [Password, setPassword] = useState("");
+    const onEmailHandler = (event) =>{
+        setEmail(event.currentTarget.value);
+    }
+    const onPasswordHandler = (event) => {
+        setPassword(event.currentTarget.value);
+    }
+
     const onLoginSubmit = (event) => {
         console.log('click login')
         console.log('Email : ' , Email)
@@ -61,7 +46,7 @@ function Login(props) {
             console.log('res.data.password :: ',res.data.password )
             if(res.data.email === Email) {
                 console.log('====================로그인 성공!')
-                props.history.push('/profile');
+                props.history.push(`/`);
                 // sessionStorage.setItem('email',Email)
             } else { 
                 alert('Login error');
@@ -70,12 +55,6 @@ function Login(props) {
         .catch()
     }
 
-    // useEffect(() => {
-    //     console.log('get alluser')
-    //     axios.get('/api/users/alluser')
-    //     .then(res => console.log(res))
-    //     .catch()
-    // }, [])
     return (
 
         <div className={open ? 'openModal modal' : 'modal'}>
@@ -94,13 +73,13 @@ function Login(props) {
                             <label>Password</label>
                             <input type="password" name="password" placeholder="패스워드" value={Password} onChange={onPasswordHandler}/>
 
-                            <button type="submit" disabled={Email ==="" && Email < 10}>로그인</button>
+                            <button type="submit"  disabled={Email ==="" && Email < 10}>로그인</button>
                         </form>
                     </main>
                     <footer style={{textAlign:"center"}}>
                         
                         <button onClick={openModal}>회원가입</button>
-                        <RegistrationModal open={modalOpen} close={closeModal} header="Modal heading">
+                        <RegistrationModal open={modalOpen} close={closeModal} header="Registration Modal">
                             회원가입 모달창
                         </RegistrationModal>
                     </footer>

@@ -23,16 +23,27 @@
 // 	);
 // }
 
-import React from 'react';
+import React, {createRef} from 'react';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
-
+import axios from 'axios';
 
 function Writer (){
   const editorRef = React.createRef();
+  const handleClick = (e) => {
+    e.preventDefault();
+    const value = editorRef.current.getInstance().getMarkdown();
+    // editorRef.current.getInstance().getHtml();
+    console.log(value)
 
-  const handleClick = () => {
-    this.editorRef.current.getInstance().exec('Bold');
+    let body = {
+      title : '강병선 야발',
+      content : value,
+      author: '1',
+
+    }
+    axios.post('/api/post/',body).then(res => (console.log(res)));
+    // console.log('editor.gethtml() : ' + editorRef.getHtml())
   };
 
   
@@ -45,7 +56,7 @@ function Writer (){
           initialValue="# 강병선"
           ref={editorRef}
         />
-        <button onClick={handleClick}>make bold</button>
+        <button onClick={handleClick}>Submit</button>
       </>
     );
   

@@ -14,6 +14,7 @@ import AdminPage from '../src/Page/AdminPage';
 import PostPage from '../src/Page/PostPage';
 import Personal from '../src/Page/Personal'; 
 import Profile from '../src/Page/Profile';
+import Viewer from '../src/Page/ViewerPage';
 
 function App(){
 
@@ -28,7 +29,7 @@ function App(){
   //     console.log('isLogin ?? :: ', isLogin)
   //   }
   // })
-
+  const id = ''
   return (
     <BrowserRouter>
         <LandingHeader/>
@@ -37,7 +38,8 @@ function App(){
         <Route exact path="/personal" component={Personal}/> 
         <Route exact path="/admin" component={AdminPage}/>
         <Route exact path="/post" component={PostPage}/>
-        <Route exact path="/profile" component={Profile}/>
+        <Route exact path="/:id/profile" component={Profile}/>
+        <Route exact path="/viewer" component={Viewer}/>
         {/* <Route component={NotFound}/> */}
       </div>
     </BrowserRouter>
