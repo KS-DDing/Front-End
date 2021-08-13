@@ -23,25 +23,35 @@
 // 	);
 // }
 
-import React, {createRef} from 'react';
+import React, {createRef, useEffect, useState} from 'react';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 import axios from 'axios';
 
 function Writer (){
   const editorRef = React.createRef();
+
+  useEffect(() => {
+    axios.get('/api/users/profile').then((req, res) =>setState(req.data))
+  }, [])
+
+  const [state,setState] = useState();
+  const profile = state
+  console.log(profile)
+
   const handleClick = (e) => {
+
     e.preventDefault();
+
     const value = editorRef.current.getInstance().getMarkdown();
     // editorRef.current.getInstance().getHtml();
     console.log(value)
-
     let body = {
       title : '강병선 야발',
       content : value,
-      author: '1',
-
+      author: profile.id,
     }
+    
     axios.post('/api/post/',body).then(res => (console.log(res)));
     // console.log('editor.gethtml() : ' + editorRef.getHtml())
   };
@@ -53,7 +63,7 @@ function Writer (){
           previewStyle="vertical"
           height="400px"
           initialEditType="markdown"
-          initialValue="# 강병선"
+          initialValue=""
           ref={editorRef}
         />
         <button onClick={handleClick}>Submit</button>

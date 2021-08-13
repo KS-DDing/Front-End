@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import LoginModal from '../Modal/Login';
 import * as Logout from '../../util/Handler/Logout/LogoutHandler'
 function LandingHeader(props) {
-
+    
     useEffect(() => {
         axios.get('/api/users/profile')
             .then((req, res) => setState(req.data))
@@ -18,6 +18,7 @@ function LandingHeader(props) {
     const closeModal = () => {
         setModalOpen(false);
     }
+    
     if (state.name == null) {
         return (
             <div>
