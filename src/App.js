@@ -1,6 +1,7 @@
 import './App.css';
 import React, {useEffect, useState} from 'react';
 import {
+  withRouter,
   BrowserRouter,
   Switch,
   Route,
@@ -38,7 +39,7 @@ function App(){
         <Route exact path="/personal" component={Personal}/> 
         <Route exact path="/admin" component={AdminPage}/>
         <Route exact path="/post" component={PostPage}/>
-        <Route exact path="/:id/profile" component={Profile}/>
+        <Route exact path="/profile/:id" component={Profile}/>
         <Route exact path="/viewer" component={Viewer}/>
         {/* <Route component={NotFound}/> */}
       </div>

@@ -1,10 +1,20 @@
-import React from 'react';
+import React, {useEffect,useState} from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import LandingHeader from '../components/Header/LandingHeader';
 import AllPosts from '../view/Post/AllPosts';
 import axios from 'axios'
 
 function LandingPage(props){
+
+    // 로그인 정보 가져오기
+    useEffect(() => {
+        axios.get('/api/users/profile').then((req, res) =>setState(req.data))
+       
+    }, [])
+    const [state, setState] = useState("")
+    const id = state.id // url에 parameter를 전달하기 위해서 id 변수생성
+    console.log(id)
+
     return(
         <div>
             <ul>
@@ -18,7 +28,7 @@ function LandingPage(props){
                     <Link to="/personal">개인 화면</Link>
                 </li>
                 <li>
-                    <Link to="/:id/profile">프로필</Link>
+                    <Link to={`/profile/${id}`}>프로필</Link>
                 </li>
             </ul>
             <AllPosts/>
