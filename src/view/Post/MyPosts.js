@@ -8,8 +8,9 @@ export default function MyPosts(props) {
     const [data, setData] = useState('')
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    console.log(props.id.id)
+
     const id = props.id.id
+
     useEffect( () => {
         const GetMyPosts = async () => {
             try{
@@ -17,7 +18,7 @@ export default function MyPosts(props) {
                 setData('');
                 setLoading(true);
                 const response = await axios.get(`/api/posts/${id}`)
-                setData(response.data);
+                setData(response.data[0].posts);
             } catch(e) {
                 setError(e)
             }
@@ -30,7 +31,7 @@ export default function MyPosts(props) {
     if(error) return <div>에러가 발생했습니다.</div>
     if(!data) return null;
 
-    console.log(data)
+    console.log(data[0].posts)
 
     const covertDate = (createAt) => {
         let newDate = Date(createAt)

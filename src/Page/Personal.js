@@ -8,6 +8,7 @@ function PersonalPage({match}) {
     console.log(match.params)
     return(
         <div>
+            <h1>여긴 개인화면^^7 자기글만 보임</h1>
             <MyPost id={match.params}/>
         </div>
         
