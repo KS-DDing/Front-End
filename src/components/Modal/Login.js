@@ -46,7 +46,8 @@ function Login(props) {
             console.log('res.data.password :: ',res.data.password )
             if(res.data.email === Email) {
                 console.log('====================로그인 성공!')
-                props.history.push(`/`);
+                // props.history.push(`/`);
+                window.location.reload();
                 // sessionStorage.setItem('email',Email)
             } else { 
                 alert('Login error');

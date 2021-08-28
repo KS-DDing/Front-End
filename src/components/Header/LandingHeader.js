@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link ,withRouter} from "react-router-dom";
 import LoginModal from '../Modal/Login';
-import * as Logout from '../../util/Handler/Logout/LogoutHandler'
+import *as Logout from '../../util/Handler/Logout/LogoutHandler'
+
 function LandingHeader(props) {
     
     useEffect(() => {
@@ -26,7 +27,6 @@ function LandingHeader(props) {
                 <div>
                     <Link to="/"><button>홈으로</button></Link>
                     <button onClick={openModal}>로그인</button>
-                    <button onClick={Logout.Logout}>로그아웃</button>
                     <LoginModal open={modalOpen} close={closeModal} header="Modal heading">
                         로그인 Modal
                     </LoginModal>

@@ -1,5 +1,6 @@
 import react from 'react';
 import axios from 'axios';
+import { withRouter,Link } from 'react-router-dom';
 
 export function Logout (props) {
 
@@ -8,6 +9,7 @@ export function Logout (props) {
         console.log(req.data)
         if(req.data) {
             console.log('============세션 지우기 성공')
+            window.location.href="/"
         }
         // if(res.session) {
         //     console.log(res.data.email + 'logout');
