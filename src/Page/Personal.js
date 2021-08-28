@@ -3,11 +3,15 @@ import axios from 'axios'
 import { withRouter } from 'react-router-dom';
 import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import { Viewer } from '@toast-ui/react-editor';
-
-function PersonalPage(props) {
-    console.log(props)
+import MyPost from '../view/Post/MyPosts'
+function PersonalPage({match}) {
+    console.log(match.params)
     return(
-        "로그인시 개인화면"
+        <div>
+            <MyPost id={match.params}/>
+        </div>
+        
+        
     )
 }
 
