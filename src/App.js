@@ -36,7 +36,7 @@ function App(){
         <LandingHeader/>
       <div>
         <Route exact path="/" component={LandingPage}/>
-        <Route exact path="/personal" component={Personal}/> 
+        <Route exact path="/personal/:id" component={Personal}/> 
         <Route exact path="/admin" component={AdminPage}/>
         <Route exact path="/post" component={PostPage}/>
         <Route exact path="/profile/:id" component={Profile}/>

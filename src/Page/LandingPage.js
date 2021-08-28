@@ -11,8 +11,11 @@ function LandingPage(props){
         axios.get('/api/users/profile').then((req, res) =>setState(req.data))
        
     }, [])
+    
     const [state, setState] = useState("")
+    console.log(state)
     const id = state.id // url에 parameter를 전달하기 위해서 id 변수생성
+    const name = state.name
     console.log(id)
 
     return(
@@ -25,7 +28,7 @@ function LandingPage(props){
                     <Link to="/admin">관리자 화면</Link>
                 </li>
                 <li>
-                    <Link to="/personal">개인 화면</Link>
+                    <Link to={`/personal/${id}`}>개인 화면</Link>
                 </li>
                 <li>
                     <Link to={`/profile/${id}`}>프로필</Link>
