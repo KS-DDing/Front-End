@@ -23,21 +23,49 @@
 // 	);
 // }
 
-import React, {createRef, useEffect, useState} from 'react';
+import React, { createRef, useEffect, useState } from 'react';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 import axios from 'axios';
 
-function Writer (){
+export function Writer(props) {
+
   const editorRef = React.createRef();
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [state, setState] = useState();
+  const [postData, setPostData] = useState('');
+
   useEffect(() => {
-    axios.get('/api/users/profile').then((req, res) =>setState(req.data))
+    const GetProfileAndPost = async () => {
+      try {
+        setError(null);
+        setPostData('');
+        setLoading(true);
+        const response = await axios.get(`/api/post/${props.postid}`);
+        axios.get('/api/users/profile').then((req, res) => setState(req.data))
+        setPostData(response.data);
+
+      } catch (e) {
+        setError(e)
+      }
+      setLoading(false);
+    };
+    GetProfileAndPost();
   }, [])
 
-  const [state,setState] = useState();
+  if(loading) return <div>로딩중...</div>
+  if(error) return <div>에러가 발생했습니다.</div>
+  if(!postData) return null;
+
   const profile = state
+
+  console.log("props.postid : " + props.postid)
+  console.log("유저 정보 : ")
   console.log(profile)
+  console.log("포스트 정보 : ")
+  console.log(postData)
 
   const handleClick = (e) => {
 
@@ -47,28 +75,26 @@ function Writer (){
     // editorRef.current.getInstance().getHtml();
     console.log(value)
     let body = {
-      title : '강병선 야발',
-      content : value,
+      title: '강병선 야발',
+      content: value,
       author: profile.id,
     }
-    
-    axios.post('/api/post/',body).then(res => (console.log(res)));
+    axios.post('/api/post/', body).then(res => (console.log(res)));
     // console.log('editor.gethtml() : ' + editorRef.getHtml())
   };
 
-  
-    return (
-      <>
-        <Editor
-          previewStyle="vertical"
-          height="400px"
-          initialEditType="markdown"
-          initialValue=""
-          ref={editorRef}
-        />
-        <button onClick={handleClick}>Submit</button>
-      </>
-    );
-  
+  return (
+    <>
+      <Editor
+        previewStyle="vertical"
+        height="400px"
+        initialEditType="markdown"
+        initialValue={postData.content}
+        ref={editorRef}
+      />
+      <button onClick={handleClick}>Submit</button>
+    </>
+  );
+
 }
 export default Writer;

@@ -5,9 +5,9 @@ import ToastEditor from '../components/ToastEditor';
 
 function EditPostPage(props) {
 
-
+    console.log(props)
     return(
-       <ToastEditor/>
+       <ToastEditor postid={props.match.params.postid}/>
     )
 }
 

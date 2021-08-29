@@ -33,16 +33,13 @@ export default function MyPosts(props) {
     if (!data) return null;
 
     console.log(data)
+
+    // 시간 수정
     const covertDate = (createAt) => {
         let newDate = Date(createAt)
 
 
         return newDate
-    }
-
-    const onClickButtonListener = (event) => {
-        const requesetData = data
-
     }
 
     const rederMyPosts = () => (
@@ -51,7 +48,7 @@ export default function MyPosts(props) {
             // console.log(index)
             // console.log(content.id)
             <div style={{ marign: "auto" }}>
-                <Link to={`/viewer/${index+1}`}><button onClick={"onClickButtonListener"}>
+                <Link to={`/viewer/${index+1}`}><button>
                     <ul key={index}>
                         <li>썸네일: {content.images}</li>
                         <li>내용: <Viewer

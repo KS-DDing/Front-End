@@ -41,6 +41,7 @@ function App(){
         <Route exact path="/post" component={EditPostPage}/>
         <Route exact path="/profile/:id" component={Profile}/>
         <Route exact path="/viewer/:postid" component={Viewer}/>
+        <Route exact path="/post/:postid" component={EditPostPage}/>
         {/* <Route component={NotFound}/> */}
       </div>
     </BrowserRouter>

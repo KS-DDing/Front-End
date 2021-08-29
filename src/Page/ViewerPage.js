@@ -2,6 +2,7 @@ import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import { Viewer } from '@toast-ui/react-editor';
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 import { Children } from 'react';
 
 // setText(res.data.content)
@@ -13,7 +14,7 @@ export default function PostView(props) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const GetAllPosts = async () => {
+        const GetOnePost = async () => {
             try {
                 setError(null);
                 setText('');
@@ -25,7 +26,7 @@ export default function PostView(props) {
             }
             setLoading(false);
         };
-        GetAllPosts();
+        GetOnePost();
     }, [])
 
     if(loading) return <div>로딩중...</div>
@@ -41,6 +42,8 @@ export default function PostView(props) {
             initialEditType="markdown"
             initialValue={text.content}
         />
+        <Link to={`/post/${props.match.params.postid}`}><button>Update</button></Link>
+        <button>Delete</button>
         </>
     );
 }
