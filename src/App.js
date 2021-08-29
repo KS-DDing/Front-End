@@ -12,7 +12,7 @@ import LandingHeader from './components/Header/LandingHeader';
 
 import LandingPage from '../src/Page/LandingPage';
 import AdminPage from '../src/Page/AdminPage';
-import PostPage from '../src/Page/PostPage';
+import EditPostPage from '../src/Page/EditPostPage';
 import Personal from '../src/Page/Personal'; 
 import Profile from '../src/Page/Profile';
 import Viewer from '../src/Page/ViewerPage';
@@ -38,9 +38,9 @@ function App(){
         <Route exact path="/" component={LandingPage}/>
         <Route exact path="/personal/:id" component={Personal}/> 
         <Route exact path="/admin" component={AdminPage}/>
-        <Route exact path="/post" component={PostPage}/>
+        <Route exact path="/post" component={EditPostPage}/>
         <Route exact path="/profile/:id" component={Profile}/>
-        <Route exact path="/viewer" component={Viewer}/>
+        <Route exact path="/viewer/:postid" component={Viewer}/>
         {/* <Route component={NotFound}/> */}
       </div>
     </BrowserRouter>
