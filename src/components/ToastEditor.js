@@ -91,7 +91,7 @@ export function Writer(props) {
         initialEditType="markdown"
         initialValue={postData.content}
         ref={editorRef}
-      />
+      /> 
       <button onClick={handleClick}>Submit</button>
     </>
   );
