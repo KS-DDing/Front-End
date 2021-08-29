@@ -18,7 +18,7 @@ export default function PostView(props) {
                 setError(null);
                 setText('');
                 setLoading(true);
-                const response = await axios.get(`/api/post/5`);
+                const response = await axios.get(`/api/post/${props.match.params.postid}`);
                 setText(response.data);
             } catch(e) {
                 setError(e)
@@ -33,6 +33,7 @@ export default function PostView(props) {
     if(!text) return null;
 
     console.log(text.content)
+    console.log(props.match.params)
     return (
         <>
         <Viewer
