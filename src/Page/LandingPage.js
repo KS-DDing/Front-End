@@ -21,9 +21,6 @@ function LandingPage(props){
         <div>
             <ul>
                 <li>
-                    <Link to="/post">글 새로 작성하기</Link>
-                </li>
-                <li>
                     <Link to="/admin">관리자 화면</Link>
                 </li>
                 <li>
