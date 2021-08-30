@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import { Children } from 'react';
+import DeletePost from '../components/ToastEditor/ToastDelete'
 
 // setText(res.data.content)
 
@@ -19,7 +20,8 @@ export default function PostView(props) {
                 setError(null);
                 setText('');
                 setLoading(true);
-                const response = await axios.get(`/api/post/${props.match.params.postid}`);
+                console.log(props.match.params.postid)
+                const response = await axios.get(`/api/posts/one/${props.match.params.postid}`);
                 setText(response.data);
             } catch(e) {
                 setError(e)
@@ -43,7 +45,7 @@ export default function PostView(props) {
             initialValue={text.content}
         />
         <Link to={`/post/${props.match.params.postid}`}><button>Update</button></Link>
-        <button>Delete</button>
+        <button onClick={() => DeletePost(`${props.match.params.postid}`)}>Delete</button>
         </>
     );
 }

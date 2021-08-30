@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import ToastEditor from '../components/ToastEditor';
+import ToastEditor from '../components/ToastEditor/ToastEditor';
 
 
 function EditPostPage(props) {
