@@ -58,7 +58,7 @@ export default function AllPosts() {
                         />
                         </li>
                         <li>해쉬태그: {content.hashtags}</li>
-                        <li>작성자: {content.userId}</li>
+                        <li>작성자: {content.author.name}</li>
                         <li>작성날짜: {covertDate(content.createAt)}</li>
                         <li>추천수: {content.liker}</li>
                     </ul>

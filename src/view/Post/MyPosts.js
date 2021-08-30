@@ -41,12 +41,12 @@ export default function MyPosts(props) {
 
         return newDate
     }
-
+    
     const rederMyPosts = () => (
-
+        
         data.map((content, index) => (
             // console.log(index)
-            // console.log(content.id)
+            
             <div style={{ marign: "auto" }}>
                 <Link to={`/viewer/${index+1}`}><button>
                     <ul key={index}>
@@ -58,7 +58,7 @@ export default function MyPosts(props) {
                         />
                         </li>
                         <li>해쉬태그: {content.hashtags}</li>
-                        <li>작성자: {content.userId}</li>
+                        <li>작성자: {content.author}</li>
                         <li>작성날짜: {covertDate(content.createAt)}</li>
                         <li>추천수: {content.liker}</li>
                     </ul>
