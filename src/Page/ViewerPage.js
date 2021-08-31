@@ -3,12 +3,13 @@ import { Viewer } from '@toast-ui/react-editor';
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import { Children } from 'react';
 import DeletePost from '../components/ToastEditor/ToastDelete'
 
 // setText(res.data.content)
 
 export default function PostView(props) {
+
+    console.log(props)
 
     const [text, setText] = useState('')
     const [loading, setLoading] = useState(false);
@@ -45,7 +46,7 @@ export default function PostView(props) {
             initialValue={text.content}
         />
         <Link to={`/post/${props.match.params.postid}`}><button>Update</button></Link>
-        <button onClick={() => DeletePost(`${props.match.params.postid}`)}>Delete</button>
+        <button onClick={() => DeletePost(props)}>Delete</button>
         </>
     );
 }

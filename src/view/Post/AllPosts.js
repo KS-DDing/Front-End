@@ -44,11 +44,11 @@ export default function AllPosts() {
 
 
         data.map((content, index) => (
-            // console.log(index)
+            
             // console.log(content.id)
 
             <div style={{ marign: "auto" }}>
-                <Link to={`/viewer/${index + 1}`}><button>
+                <Link to={`/viewer/${content.id}`}><button>
                     <ul key={index}>
                         <li>썸네일: {content.images}</li>
                         <li>내용: <Viewer
