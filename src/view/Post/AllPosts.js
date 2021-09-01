@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import { Viewer } from '@toast-ui/react-editor';
 
-export default function AllPosts() {
+export default function AllPosts(props) {
+
+    console.log(props)
 
     const [data, setData] = useState('')
     const [loading, setLoading] = useState(false);
@@ -48,7 +50,10 @@ export default function AllPosts() {
             // console.log(content.id)
 
             <div style={{ marign: "auto" }}>
-                <Link to={`/viewer/${content.id}`}><button>
+                <Link to={{
+                    pathname: `/viewer/${content.id}`,
+                    state: props.id,
+                }}><button>
                     <ul key={index}>
                         <li>썸네일: {content.images}</li>
                         <li>내용: <Viewer
