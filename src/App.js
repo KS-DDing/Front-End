@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   withRouter,
   BrowserRouter,
@@ -14,11 +14,12 @@ import LandingPage from '../src/Page/LandingPage';
 import AdminPage from '../src/Page/AdminPage';
 import CreatePostPage from '../src/components/ToastEditor/ToastCreate'
 import EditPostPage from '../src/Page/EditPostPage';
-import Personal from '../src/Page/Personal'; 
+import Personal from '../src/Page/Personal';
 import Profile from '../src/Page/Profile';
 import Viewer from '../src/Page/ViewerPage';
+import NotFound from './Page/NotFound';
 
-function App(){
+function App() {
 
   // const [isLogin, setIsLogin] = useState(false);
 
@@ -34,17 +35,17 @@ function App(){
   const id = ''
   return (
     <BrowserRouter>
-        <LandingHeader/>
-      <div>
-        <Route exact path="/" component={LandingPage}/>
-        <Route exact path="/personal/:id" component={Personal}/> 
-        <Route exact path="/admin" component={AdminPage}/>
-        <Route exact path="/post" component={CreatePostPage}/>
-        <Route exact path="/post/:postid" component={EditPostPage}/>
-        <Route exact path="/profile/:id" component={Profile}/>
-        <Route exact path="/viewer/:postid" component={Viewer}/>
-        {/* <Route component={NotFound}/> */}
-      </div>
+      <LandingHeader />
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/personal/:id" component={Personal} />
+        <Route exact path="/admin" component={AdminPage} />
+        <Route exact path="/post" component={CreatePostPage} />
+        <Route exact path="/post/:postid" component={EditPostPage} />
+        <Route exact path="/profile/:id" component={Profile} />
+        <Route exact path="/viewer/:postid" component={Viewer} />
+        <Route component={NotFound} />
+      </Switch>
     </BrowserRouter>
   );
 }
