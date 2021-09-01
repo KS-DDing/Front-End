@@ -30,7 +30,7 @@ function LandingPage(props){
                     <Link to={`/profile/${id}`}>프로필</Link>
                 </li>
             </ul>
-            <AllPosts/>
+            <AllPosts id={id}/>
         </div>
     )
 }
