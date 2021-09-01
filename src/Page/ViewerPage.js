@@ -46,7 +46,7 @@ export default function PostView(props) {
             initialEditType="markdown"
             initialValue={text.content}
         />
-        <button></button>
+        <button>좋아요</button>
         <Link to={`/post/${props.match.params.postid}`}><button>Update</button></Link>
         <button onClick={() => DeletePost(props)}>Delete</button>
         </>
