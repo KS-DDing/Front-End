@@ -36,6 +36,7 @@ export default function PostView(props) {
     if(error) return <div>에러가 발생했습니다.</div>
     if(!text) return null;
 
+    console.log(text)
     console.log(text.content)
     console.log(props.match.params)
     return (
@@ -45,6 +46,7 @@ export default function PostView(props) {
             initialEditType="markdown"
             initialValue={text.content}
         />
+        <button></button>
         <Link to={`/post/${props.match.params.postid}`}><button>Update</button></Link>
         <button onClick={() => DeletePost(props)}>Delete</button>
         </>
