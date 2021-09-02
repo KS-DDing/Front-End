@@ -23,12 +23,14 @@
 // 	);
 // }
 
-import React, { createRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 import axios from 'axios';
 
 export function Writer(props) {
+
+  console.log(props)
 
   const editorRef = React.createRef();
 
@@ -53,7 +55,7 @@ export function Writer(props) {
       setLoading(false);
     };
     GetProfileAndPost();
-  }, [])
+  }, [props.postid])
 
   if(loading) return <div>로딩중...</div>
   if(error) return <div>에러가 발생했습니다.</div>
@@ -83,6 +85,7 @@ export function Writer(props) {
     console.log(body)
     axios.post('/api/post/edit', body).then(res => (console.log(res)));
     // console.log('editor.gethtml() : ' + editorRef.getHtml())
+    window.location.replace(`/viewer/${props.postid}`)
   };
 
   return (

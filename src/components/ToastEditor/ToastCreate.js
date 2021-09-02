@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 import axios from 'axios';
@@ -24,7 +24,7 @@ function Create(props) {
         } catch (e) {
             setError(e)
         }
-    }, [])
+    }, [props.location.state])
 
     console.log(state)
     //   if(loading) return <div>로딩중...</div>
