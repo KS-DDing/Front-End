@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import { Link ,withRouter} from "react-router-dom";
+import { Link } from "react-router-dom";
 import LoginModal from '../Modal/Login';
 import *as Logout from '../../util/Handler/Logout/LogoutHandler'
 
 function LandingHeader(props) {
     
+    console.log(props);
+    
     useEffect(() => {
         axios.get('/api/users/profile')
             .then((req, res) => setState(req.data))
+    
     }, [])
+    
     const [state, setState] = useState("")
     const [modalOpen, setModalOpen] = useState(false);
     const openModal = () => {
@@ -27,7 +31,7 @@ function LandingHeader(props) {
                 <div>
                     <Link to="/"><button>홈으로</button></Link>
                     <button onClick={openModal}>로그인</button>
-                    <LoginModal open={modalOpen} close={closeModal} header="Modal heading">
+                    <LoginModal open={modalOpen} close={closeModal}  header="Modal heading">
                         로그인 Modal
                     </LoginModal>
                 </div>
