@@ -1,11 +1,10 @@
-import react from 'react';
 import { withRouter } from 'react-router';
 
 function NotFound() {
     
     return (
         <div>
-            NotFound
+            NotFound 404
         </div>
     );
 }

@@ -1,6 +1,5 @@
-import react, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import axios from 'axios';
-import { set } from 'react-hook-form';
 function Profile({match}) {
     // const { email, password, name } = props || {};
     // console.log(props)
@@ -13,7 +12,6 @@ function Profile({match}) {
     
     console.log(match)
     
-    const id = match.params;
     const profile = state.id
     console.log(profile)
     return (
