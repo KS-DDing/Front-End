@@ -1,11 +1,12 @@
 import "../../assets/css/modal.css"
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import RegistrationModal from "./Registration"
 import { withRouter } from 'react-router-dom';
 import axios from 'axios'
 
 function Login(props) {
 
+    // console.log(props)
     // 로그인 모달창
     const { open, close, header } = props;
 
@@ -46,9 +47,9 @@ function Login(props) {
             console.log('res.data.password :: ',res.data.password )
             if(res.data.email === Email) {
                 console.log('====================로그인 성공!')
+                sessionStorage.setItem("user",JSON.stringify(true))
                 props.history.push(`/personal/${res.data.id}`);
                 window.location.reload();
-                // sessionStorage.setItem('email',Email)
             } else { 
                 alert('Login error');
             }
