@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^6.2.0",
+    "@headlessui/react": "^1.4.1",
+    "@heroicons/react": "^1.0.4",
     "@hookform/resolvers": "^2.6.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.2.7",
@@ -51,7 +54,7 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^10.3.3",
+    "autoprefixer": "^10.3.4",
     "postcss": "^8.3.6",
     "tailwindcss": "^2.2.9"
   }
