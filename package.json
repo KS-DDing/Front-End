@@ -6,31 +6,33 @@
     "@craco/craco": "^6.2.0",
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
-    "@hookform/resolvers": "^2.6.1",
+    "@hookform/resolvers": "^2.8.0",
+    "@tailwindcss/forms": "^0.3.3",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.1.10",
-    "@toast-ui/editor": "^3.0.2",
-    "@toast-ui/react-editor": "^3.0.2",
-    "axios": "^0.21.1",
-    "concurrently": "^6.2.0",
+    "@toast-ui/editor": "^3.0.3",
+    "@toast-ui/react-editor": "^3.0.3",
+    "axios": "^0.21.3",
+    "concurrently": "^6.2.1",
+    "daisyui": "^1.14.0",
     "http-proxy-middleware": "^2.0.1",
     "kill-port": "^1.6.1",
     "prismjs": "^1.24.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-hook-form": "^7.12.1",
-    "react-redux": "^7.2.4",
-    "react-router-dom": "^5.2.0",
+    "react-hook-form": "^7.14.2",
+    "react-redux": "^7.2.5",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
-    "redux": "^4.1.0",
+    "redux": "^4.1.1",
     "web-vitals": "^1.0.1",
     "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject",
     "backend": "cd ../Back-End && npm run dev",
     "dev": "concurrently \"npm run backend\" \"npm run start\""
@@ -54,8 +56,9 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^10.3.4",
-    "postcss": "^8.3.6",
-    "tailwindcss": "^2.2.9"
+    "@tailwindcss/postcss7-compat": "^2.2.9",
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.36",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.9"
   }
 }
