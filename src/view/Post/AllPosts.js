@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import { Viewer } from '@toast-ui/react-editor';
+import {reverseMapping} from '../../util/Map/Mapping';
 
 export default function AllPosts(props) {
 
@@ -41,11 +42,12 @@ export default function AllPosts(props) {
         return newDate
     }
 
+    const reversed = reverseMapping(data);
+    console.log(reversed);
+
     const rederAllPosts = () => (
 
-
-
-        data.map((content, index) => (
+        reversed.map((content, index) => (
 
             // console.log(content.id)
 
