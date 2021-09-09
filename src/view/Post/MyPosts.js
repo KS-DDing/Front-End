@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import { Viewer } from '@toast-ui/react-editor';
+import {reverseMapping} from '../../util/Map/Mapping';
 
 export default function MyPosts(props) {
     console.log(props.id.match.params)
@@ -42,10 +43,14 @@ export default function MyPosts(props) {
         return newDate
     }
 
-    const rederMyPosts = () => (
+    // 역순으로 맵핑 - id기준
+    // const reversed = data.map(data => data).reverse(); 
+    const reversed = reverseMapping(data);
+    console.log(reversed)
 
-        data.map((content, index) => (
-            // console.log(index)
+    const rederMyPosts = () => (
+        
+        reversed.map((content, index) => (
 
             <div style={{ marign: "auto" }}>
                 <Link to={{
