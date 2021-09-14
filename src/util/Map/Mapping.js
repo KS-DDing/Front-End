@@ -6,3 +6,9 @@ export const reverseMapping = (array) => {
 
     return reversed;
 }
+
+export const likeMapping = (array) => {
+    
+    const liked;
+    return liked;
+}
