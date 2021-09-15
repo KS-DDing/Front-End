@@ -9,6 +9,6 @@ export const reverseMapping = (array) => {
 
 export const likeMapping = (array) => {
     
-    const liked;
+    const liked = array;
     return liked;
 }
