@@ -60,7 +60,7 @@ function Create(props) {
                 <input></input>
                 <Editor
                     previewStyle="vertical"
-                    height="400px"
+                    height="800px"
                     initialEditType="markdown"
                     initialValue="글 새로 작성하기"
                     ref={editorRef}
