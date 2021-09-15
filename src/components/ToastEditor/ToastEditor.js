@@ -92,12 +92,12 @@ export function Writer(props) {
     <>
       <Editor
         previewStyle="vertical"
-        height="400px"
+        height="800px"
         initialEditType="markdown"
         initialValue={postData.content}
         ref={editorRef}
       /> 
-      <button onClick={handleClick}>Submit</button>
+      <button onClick={handleClick}>수정하기</button>
     </>
   );
 
