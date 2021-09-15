@@ -65,7 +65,7 @@ function Create(props) {
                     initialValue="글 새로 작성하기"
                     ref={editorRef}
                 />
-                <button style={{marginTop: "1em"}}type="submit">Submit</button>
+                <button style={{marginTop: "1em"}}type="submit">제출</button>
             </form>
         </>
     );
